@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entry Naga Putih</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-text">
+    <h1>ENTRY NAGA PUTIH</h1>
+    <p>Tim yang Solid, Cerdas, dan Berani</p>
+  </div>
+
+  <!-- NAMA ANGGOTA -->
+  <div class="hero-members">
+    <button onclick="showDesc('danil')">DANIL</button>
+    <button onclick="showDesc('zul')">ZULFAHMI</button>
+    <button onclick="showDesc('adit')">ADITYA</button>
+    <button onclick="showDesc('ari')">ARI</button>
+    <button onclick="showDesc('radhi')">RADHI</button>
+    <button onclick="showDesc('dandri')">DANDRI</button>
+    <button onclick="showDesc('zhafran')">ZHAFRAN</button>
+  </div>
+</section>
+
+<!-- POPUP DETAIL -->
+<div id="memberDetail" class="member-detail hidden">
+  <span class="close" onclick="closeDetail()">✕</span>
+  <img id="memberImg">
+  <h3 id="memberName"></h3>
+  <p id="memberDesc"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
