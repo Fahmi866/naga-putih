@@ -2,7 +2,7 @@ const dataMember = {
   danil: {
     name: "Danil Kurniawan",
     img: "images/danil.png",
-    desc: "Danil adalah pribadi yang displin, asal teluk lanus, hobi menyinal dan bertanggung jawab, juulukannya budak comel."
+    desc: "Danil adalah pribadi yang disiplin, asal teluk lanus, hobi menyinal dan bertanggung jawab, julukannya budak comel."
   },
   zul: {
     name: "Muhammad Zulfahmi",
@@ -11,8 +11,8 @@ const dataMember = {
   },
   adit: {
     name: "Aditya Firmansyah",
-    img: "images/aditya.png",
-    desc: "Adit ialah sosok pribadi yang tangguh, seorang player, yang memilki insting menyerang yang tangguh."
+    img: "images/adit.png",
+    desc: "Adit ialah sosok pribadi yang tangguh, seorang player, yang memiliki insting menyerang yang tangguh."
   },
   ari: {
     name: "Ari Tonang",
@@ -22,7 +22,7 @@ const dataMember = {
   radhi: {
     name: "Radhi Rabbani",
     img: "images/radhi.png",
-    desc: "radhi adalah pribadi yang rajin, dan sang penakluk bilard riau."
+    desc: "Radhi adalah pribadi yang rajin, dan sang penakluk billiard riau."
   },
   dandri: {
     name: "Dandri",
@@ -42,19 +42,15 @@ function showDesc(key) {
   const name = document.getElementById("memberName");
   const desc = document.getElementById("memberDesc");
 
-  img.src = dataMember[key].img;
-  name.textContent = dataMember[key].name;
-  desc.textContent = dataMember[key].desc;
-
-  detail.classList.remove("hidden");
-
-  // restart animasi setiap klik
-  detail.style.animation = "none";
-  detail.offsetHeight;
-  detail.style.animation = "slideUp .6s ease forwards";
-  
+  if (dataMember[key]) {
+    img.src = dataMember[key].img;
+    name.textContent = dataMember[key].name;
+    desc.textContent = dataMember[key].desc;
+    detail.classList.add("active");
+  }
 }
 
-
-    
-   
+function closeDetail() {
+  const detail = document.getElementById("memberDetail");
+  detail.classList.remove("active");
+}

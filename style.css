@@ -7,113 +7,177 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
+  background-color: #000;
+  overflow-x: hidden;
 }
 
-/* HERO */
+/* --- HERO SECTION --- */
 .hero {
   position: relative;
-  height: 100vh;
-  background: url("images/naga-putih.jpg") center/cover no-repeat;
+  min-height: 100vh;
+  background: url("images/naga-putih.jpg") center center/cover no-repeat;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
   z-index: 1;
 }
 
+/* --- TEKS BERGERAK --- */
 .hero-text {
   position: relative;
   z-index: 2;
   color: white;
   text-align: center;
+  margin-bottom: 30px;
+  /* Animasi melayang lembut */
+  animation: float 4s ease-in-out infinite;
 }
 
 .hero-text h1 {
-  font-size: 4rem;
-  letter-spacing: 4px;
+  font-size: clamp(2.2rem, 10vw, 4.5rem);
+  letter-spacing: 5px;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(255,255,255,0.5), 0 0 30px rgba(0,150,255,0.3);
 }
 
 .hero-text p {
-  margin-top: 10px;
-  opacity: 0.85;
+  margin-top: 5px;
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 
-/* MEMBER BUTTON */
+/* --- TOMBOL NAMA (ANIMASI MUNCUL) --- */
 .hero-members {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  position: relative;
   z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 650px;
 }
 
 .hero-members button {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 10px 18px;
-  border-radius: 20px;
+  padding: 14px 24px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex: 1 1 140px;
+  max-width: 170px;
+  /* Animasi muncul dari bawah */
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
 }
+
+/* Mengatur urutan muncul tombol (satu per satu) */
+.hero-members button:nth-child(1) { animation-delay: 0.2s; }
+.hero-members button:nth-child(2) { animation-delay: 0.3s; }
+.hero-members button:nth-child(3) { animation-delay: 0.4s; }
+.hero-members button:nth-child(4) { animation-delay: 0.5s; }
+.hero-members button:nth-child(5) { animation-delay: 0.6s; }
+.hero-members button:nth-child(6) { animation-delay: 0.7s; }
+.hero-members button:nth-child(7) { animation-delay: 0.8s; }
 
 .hero-members button:hover {
-  background: white;
-  color: black;
-  transform: translateY(-4px);
+  background: #fff;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.3);
 }
 
-/* POPUP DETAIL */
+/* --- POPUP DETAIL --- */
 .member-detail {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.92);
-  display: flex;
+  background: rgba(0,0,0,0.96);
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  z-index: 9999; /* 🔥 penting */
+  padding: 40px;
+  z-index: 10000;
+  text-align: center;
+}
+
+.member-detail.active {
+  display: flex;
+  animation: zoomIn 0.3s ease-out forwards;
 }
 
 .member-detail img {
-  width: 160px;
-  height: 160px;
+  width: clamp(160px, 40vw, 220px);
+  height: clamp(160px, 40vw, 220px);
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid white;
-  margin-bottom: 20px;
+  border: 5px solid #fff;
+  margin-bottom: 25px;
+  box-shadow: 0 0 50px rgba(255,255,255,0.15);
 }
 
 .member-detail h3 {
+  font-size: 2rem;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .member-detail p {
-  max-width: 420px;
-  text-align: center;
-  opacity: 0.85;
+  max-width: 500px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  opacity: 0.8;
 }
 
-/* TOMBOL CLOSE */
 .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 32px;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
   cursor: pointer;
-  z-index: 10000; /* 🔥 di atas segalanya */
+  transition: 0.3s;
 }
 
-.hidden {
-  display: none !important;
+.close:hover { color: #ff4d4d; }
+
+/* --- KEYFRAMES --- */
+
+/* Efek Melayang */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Efek Muncul dari Bawah */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efek Zoom untuk Popup */
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
