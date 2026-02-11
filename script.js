@@ -1,7 +1,7 @@
 const dataMember = {
   danil: {
     name: "Danil Kurniawan",
-    img: "images/danil_baru.png", // <--- PASTIKAN ADA KOMA DI SINI
+    img: "images/danil_baru.png",
     desc: "Danil adalah pribadi yang disiplin, asal teluk lanus, hobi menyinal dan bertanggung jawab, julukannya budak comel."
   },
   zul: {
@@ -46,11 +46,11 @@ function showDesc(key) {
     img.src = dataMember[key].img;
     name.textContent = dataMember[key].name;
     desc.textContent = dataMember[key].desc;
-    detail.classList.remove("hidden");
+    detail.classList.add("active");
   }
 }
 
 function closeDetail() {
   const detail = document.getElementById("memberDetail");
-  detail.classList.add("hidden");
+  detail.classList.remove("active");
 }
