@@ -1,7 +1,7 @@
 const dataMember = {
   danil: {
     name: "Danil Kurniawan",
-    img: "images/danil_baru.png", // Sudah ditambah koma
+    img: "images/danil_baru.png",
     desc: "Danil adalah pribadi yang disiplin, asal teluk lanus, hobi menyinal dan bertanggung jawab, julukannya budak comel."
   },
   zul: {
@@ -46,13 +46,12 @@ function showDesc(key) {
     img.src = dataMember[key].img;
     name.textContent = dataMember[key].name;
     desc.textContent = dataMember[key].desc;
-    // Menggunakan remove('hidden') sesuai dengan class di HTML kamu
+    // Pastikan ini pakai 'hidden' sesuai class di HTML kamu
     detail.classList.remove("hidden");
   }
 }
 
 function closeDetail() {
   const detail = document.getElementById("memberDetail");
-  // Menggunakan add('hidden') untuk menutup kembali
   detail.classList.add("hidden");
 }
