@@ -1,7 +1,7 @@
 const dataMember = {
   danil: {
     name: "Danil Kurniawan",
-    img: "images/danil.png",
+    img: "images/danil_baru.png"
     desc: "Danil adalah pribadi yang disiplin, asal teluk lanus, hobi menyinal dan bertanggung jawab, julukannya budak comel."
   },
   zul: {
